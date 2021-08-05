@@ -19,6 +19,8 @@
 	
 		Create a new string builder under the current module's name.
 #>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
+	[OutputType([System.Text.StringBuilder])]
 	[CmdletBinding()]
 	Param (
 		[switch]
