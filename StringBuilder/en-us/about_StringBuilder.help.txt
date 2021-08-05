@@ -1,0 +1,11 @@
+﻿TOPIC
+	about_StringBuilder
+	
+SHORT DESCRIPTION
+	Explains how to use the StringBuilder powershell module
+	
+LONG DESCRIPTION
+	<Insert Content here>
+
+KEYWORDS
+	StringBuilder
