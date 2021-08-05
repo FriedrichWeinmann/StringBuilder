@@ -1,31 +1,32 @@
-﻿# Description
+﻿# StringBuilder
 
-Insert a useful description for the StringBuilder project here.
+A simple wrapper around the StringBuilder type.
+Allowing a simple and convenient way to incrementally build up your text.
 
-Remember, it's the first thing a visitor will see.
+## Install
 
-# Project Setup Instructions
-## Working with the layout
+```powershell
+Install-Module StringBuilder
+```
 
-- Don't touch the psm1 file
-- Place functions you export in `functions/` (can have subfolders)
-- Place private/internal functions invisible to the user in `internal/functions` (can have subfolders)
-- Don't add code directly to the `postimport.ps1` or `preimport.ps1`.
-  Those files are designed to import other files only.
-- When adding files & folders, make sure they are covered by either `postimport.ps1` or `preimport.ps1`.
-  This adds them to both the import and the build sequence.
+## Use
 
-## Setting up CI/CD
+Create a new StringBuilder:
 
-> To create a PR validation pipeline, set up tasks like this:
+```powershell
+$null = New-SBStringBuilder -Register
+```
 
-- Install Prerequisites (PowerShell Task; VSTS-Prerequisites.ps1)
-- Validate (PowerShell Task; VSTS-Validate.ps1)
-- Publish Test Results (Publish Test Results; NUnit format; Run no matter what)
+Add text to it:
 
-> To create a build/publish pipeline, set up tasks like this:
+```powershell
+Add-SBLine "Some text"
+Add-SBLine "More text"
+Add-SBLine "Even more {0} with values provided from {1}" -Values 'text','outside'
+```
 
-- Install Prerequisites (PowerShell Task; VSTS-Prerequisites.ps1)
-- Validate (PowerShell Task; VSTS-Validate.ps1)
-- Build (PowerShell Task; VSTS-Build.ps1)
-- Publish Test Results (Publish Test Results; NUnit format; Run no matter what)
+Finally, finish it up:
+
+```powershell
+Close-SBStringBuilder
+```
